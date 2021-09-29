@@ -1,0 +1,34 @@
+pipeline {
+	agent {
+		label 'master'
+	}
+	parameters {
+		choice choices: ['master', 'dev', 'prod'], description: '3 choices given', name: 'master'
+		string defaultValue: 'dev', name: 'master'
+	}
+	stages {
+		stage('build the code') {
+			steps {
+				script {
+					sh '''
+						echo "build the java code"
+						'''
+					}
+				}
+			}
+		stage ('build the maven packge') {
+			steps {
+				script {
+					sh "echo 'maven build' "
+				}
+			}
+		}
+		stage ('docker push') {
+			steps {
+				script {
+					sh 'echo "docker push " '
+				}
+			}
+		}
+	}
+}
