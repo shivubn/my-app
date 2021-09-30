@@ -30,5 +30,12 @@ pipeline {
 				}
 			}
 		}
+		stage ('test the code') {
+			steps {
+				script {
+					sh "echo 'run the test cases' "
+				}
+			}
+		}
 	}
 }
