@@ -1,4 +1,4 @@
-[200~pipeline {
+pipeline {
 	agent {
 		label 'master'
 	}
@@ -30,6 +30,19 @@
 				}
 			}
 		}
+		stage ('test the code') {
+			steps {
+				script {
+					sh "echo 'run the test cases' "
+				}
+			}
+		}
+		stage ('deploy the package') {
+			steps {
+				script {
+					sh " echo 'deploy the package' "
+				}
+			}
+		}
 	}
 }
-
